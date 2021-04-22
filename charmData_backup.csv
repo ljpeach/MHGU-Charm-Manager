@@ -1,0 +1,573 @@
+10,Hearing,7,Dragon Spirit,2,0
+10,Hearing,6,-,-,3
+10,Wind Res,8,Fire Atk,12,0
+10,Wind Res,8,Artillery,1,3
+10,Wind Res,8,Crystalbeard X,3,0
+10,Wind Res,8,Soulseer X,3,0
+10,Coldblooded,4,Defense,8,2
+10,Hotblooded,7,Chance,-1,3
+10,Hotblooded,7,-,-,2
+10,Hotblooded,4,Nightcloak X,3,0
+10,Biology,10,Recoil,5,0
+10,Biology,9,Defense,13,0
+10,Biology,7,Ice Atk,10,0
+10,Biology,7,Reload Spd,2,2
+10,Biology,5,Fate,4,3
+10,Blight Res,7,Stamina,5,0
+10,Blight Res,6,Chain Crit,2,2
+10,Blight Res,3,Chain Crit,2,2
+10,Elemental,5,Grinder,5,0
+10,Elemental,5,Guard,5,0
+10,Elemental,4,Mounting,8,2
+10,Status,4,Crystalbeard X,3,0
+10,Sharpness,7,Loading,2,0
+10,Sharpness,6,KO,5,0
+10,Fencing,7,Critical Up,3,0
+10,Fencing,7,Stam Recov,-3,3
+10,Fencing,7,Mycology,4,1
+10,Grinder,3,Bomb Boost,5,2
+10,Blunt,6,Prolong SP,5,0
+10,Blunt,5,Status,7,0
+10,Blunt,5,Fast Charge,3,0
+10,Blunt,4,Ammo Saver,1,3
+10,Crit Draw,5,Punish Draw,4,0
+10,Crit Draw,2,Vault,5,2
+10,Punish Draw,5,Soulseer X,2,0
+10,Punish Draw,3,Spirit,3,2
+10,Punish Draw,2,Guard,2,3
+10,Punish Draw,1,Bladescale,3,1
+10,Sheathing,10,Guard,-1,2
+10,Sheathing,7,Capturer,6,0
+10,Sheathing,6,Prolong SP,5,3
+10,Sheathing,5,Stamina,5,0
+10,Sheathe Sharpen,10,Water Atk,13,0
+10,Sheathe Sharpen,10,Stamina,2,1
+10,Sheathe Sharpen,10,Dreadking X,3,0
+10,Sheathe Sharpen,9,Rec Level,3,0
+10,Sheathe Sharpen,8,Fencing,4,2
+10,Sheathe Sharpen,7,Dead Eye,3,2
+10,Sheathe Sharpen,5,Pellet Up,3,2
+10,Reload Spd,7,Redhelm X,1,0
+10,Reload Spd,5,Deadeye X,3,0
+10,Recoil,4,Water Atk,6,2
+10,Recoil,3,Stam Drain,8,1
+10,Recoil,3,Soulseer X,3,1
+10,Recoil,2,Dreadking X,3,0
+10,Normal Up,2,Tenderizer,5,2
+10,Pierce Up,4,Prolong SP,7,0
+10,Pierce Up,2,Distance Runner,3,2
+10,Pellet Up,5,Guts,1,1
+10,Pellet Up,2,Stamina,3,2
+10,Heavy Up,6,Bomb Boost,7,0
+10,Heavy Up,6,Nightcloak X,2,0
+10,Heavy Up,6,Soulseer X,1,0
+10,Heavy Up,6,Soulseer X,1,0
+10,Heavy Up,2,Wide Range,12,2
+10,Rapid Fire,3,Ice Atk,10,0
+10,Rapid Fire,3,Thunderlord X,3,0
+10,Rapid Fire,1,Thunderlord X,3,2
+10,Dead Eye,5,Chain Crit,3,0
+10,Dead Eye,4,Distance Runner,3,0
+10,Dead Eye,3,Handicraft,5,0
+10,Dead Eye,3,Bomb Boost,2,3
+10,Dead Eye,3,Crystalbeard X,3,0
+10,Loading,4,Carving,4,3
+10,Loading,3,Carving,4,3
+10,Loading,2,Status,7,0
+10,Loading,2,Stamina,3,3
+10,Ammo Saver,7,Recoil,-5,2
+10,Ammo Saver,7,-,-,2
+10,Ammo Saver,5,Hearing,4,1
+10,Ammo Saver,4,Reload Spd,5,3
+10,Ammo Saver,3,Potential,4,2
+10,Tenderizer,6,Stonefist X,1,0
+10,Tenderizer,2,Reload Spd,6,1
+10,Chain Crit,5,Tenderizer,2,1
+10,Chain Crit,5,Wide Range,6,0
+10,Crit Status,6,Stam Drain,9,0
+10,Crit Status,5,Grinder,5,0
+10,Crit Status,5,Protection,5,3
+10,Crit Status,2,Silverwind X,3,2
+10,Crit Element,6,Water Atk,10,0
+10,Crit Element,6,Recoil,3,0
+10,Crit Element,6,Carving,5,0
+10,Crit Element,4,Furor,2,2
+10,Crit Element,4,Grimclaw X,2,1
+10,Fast Charge,6,Fate,3,0
+10,Fast Charge,5,Wind Res,5,2
+10,Fast Charge,5,Sharpness,2,2
+10,Stamina,6,Heavy Up,3,0
+10,Stamina,6,Light Eater,4,0
+10,Stamina,6,Light Eater,4,0
+10,Stamina,4,Normal Up,5,1
+10,Stamina,4,Guard Up,3,2
+10,Stamina,3,Normal Up,4,2
+10,Constitution,6,Boltreaver X,2,0
+10,Constitution,5,Crit Draw,3,2
+10,Stam Recov,7,Sharpness,6,0
+10,Stam Recov,7,Stamina,1,3
+10,Stam Recov,4,Punish Draw,6,1
+10,Stam Recov,4,Light Eater,4,1
+10,Distance Runner,5,Thunder Atk,8,1
+10,Distance Runner,4,Evade Dist,4,0
+10,Distance Runner,3,Elderfrost X,2,3
+10,Distance Runner,2,Stamina,5,0
+10,Evasion,6,Redhelm X,1,0
+10,Evade Dist,5,Distance Runner,5,0
+10,Evade Dist,5,Soulseer X,2,0
+10,Evade Dist,4,Defense,7,2
+10,Guard,6,Prolong SP,2,1
+10,Guard,3,Capturer,7,0
+10,Guard Up,6,Stam Drain,9,0
+10,Guard Up,6,Crystalbeard X,2,3
+10,Guard Up,4,Bomb Boost,8,0
+10,KO,9,Vault,4,1
+10,KO,9,Mycology,2,0
+10,KO,7,Pellet Up,2,1
+10,KO,6,Loading,4,0
+10,Stam Drain,8,Ammo Saver,6,0
+10,Stam Drain,8,Mounting,10,0
+10,Destroyer,6,Tenderizer,4,1
+10,Destroyer,4,Evade Dist,3,2
+10,Destroyer,3,Protection,10,2
+10,Gloves Off,6,Bladescale,3,0
+10,Gloves Off,6,Soulseer X,2,0
+10,Gloves Off,4,Deadeye X,1,3
+10,Gloves Off,3,Rec Level,5,0
+10,Spirit,5,Thunder Atk,9,0
+10,Spirit,3,Sharpness,5,0
+10,Unscathed,5,Stam Recov,4,0
+10,Unscathed,3,Distance Runner,5,1
+10,Chance,5,Ice Atk,3,1
+10,Chance,3,Light Eater,7,0
+10,Potential,6,Bubble,1,1
+10,Potential,4,Bubble,3,0
+10,Furor,5,Elderfrost X,3,0
+10,Furor,4,Expert,7,1
+10,Furor,3,Critical Up,3,2
+10,Furor,3,Potential,3,2
+10,Crisis,5,Handicraft,5,0
+10,Crisis,4,Bladescale,2,0
+10,Crisis,3,Evasion,4,0
+10,Guts,4,Reload Spd,5,0
+10,Guts,4,Unscathed,2,0
+10,Guts,4,Potential,4,0
+10,Guts,4,Eating,4,3
+10,Guts,3,Maestro,8,0
+10,Vault,4,Attack,10,0
+10,Vault,4,Silverwind X,1,2
+10,Vault,3,Guard,4,0
+10,Insight,5,Eating,3,0
+10,Insight,3,Tenderizer,3,2
+10,Endurance,7,Bladescale,1,2
+10,Endurance,7,Charmer,3,1
+10,Endurance,7,Rustrazor X,2,0
+10,Endurance,6,Guard Up,4,0
+10,Endurance,5,Bladescale,2,0
+10,Prolong SP,6,Sharpener,5,0
+10,Protection,7,-,-,2
+10,Protection,6,Dreadking X,2,0
+10,Protection,5,Pierce Up,3,1
+10,Protection,3,Artillery,3,3
+10,Hero Shield,5,Light Eater,6,1
+10,Hero Shield,5,Soulseer X,2,0
+10,Hero Shield,2,Tenderizer,4,3
+10,Hero Shield,2,Deadeye X,3,0
+10,Rec Level,7,Fencing,7,3
+10,Rec Level,5,Hero Shield,2,0
+10,Eating,4,Constitution,5,1
+10,Light Eater,7,Attack,8,0
+10,Light Eater,4,Redhelm X,2,2
+10,Charmer,7,Thunder Atk,4,0
+10,Charmer,7,Chance,3,0
+10,Charmer,6,Normal Up,2,2
+10,Charmer,4,Loading,5,0
+9,Hearing,4,Pierce Up,3,0
+9,Hearing,3,Potential,4,0
+9,Wind Res,8,-,-,0
+9,Wind Res,7,Dead Eye,1,0
+9,Wind Res,6,-,-,1
+9,Coldblooded,6,Potential,2,0
+9,Hotblooded,5,Thunder Atk,5,0
+9,Biology,9,Charmer,3,0
+9,Elemental,6,-,-,2
+9,Status,3,-,-,2
+9,Sharpness,4,Chain Crit,2,0
+9,Sharpness,3,Hearing,-3,2
+9,Sharpness,3,Dead Eye,4,0
+9,Fencing,7,Bubble,-1,0
+9,Fencing,5,Soulseer X,-2,1
+9,Grinder,4,-,-,0
+9,Grinder,1,Rapid Fire,4,0
+9,Blunt,6,KO,-5,0
+9,Blunt,3,Recoil,3,0
+9,Crit Draw,3,-,-,3
+9,Crit Draw,2,Snowbaron X,1,2
+9,Punish Draw,4,Guard,2,0
+9,Punish Draw,2,Blight Res,3,2
+9,Punish Draw,2,Elderfrost X,2,0
+9,Sheathing,7,Elderfrost X,1,0
+9,Sheathe Sharpen,8,Sharpness,1,0
+9,Sheathe Sharpen,8,Bubble,-1,0
+9,Sheathe Sharpen,7,Blight Res,4,0
+9,Reload Spd,5,Distance Runner,1,0
+9,Reload Spd,5,Bloodbath X,1,0
+9,Reload Spd,3,Chain Crit,2,0
+9,Reload Spd,3,Maestro,3,1
+9,Recoil,4,-,-,2
+9,Recoil,2,Hero Shield,2,1
+9,Normal Up,6,-,-,0
+9,Normal Up,5,-,-,0
+9,Normal Up,3,Prolong SP,4,0
+9,Pierce Up,5,Wind Res,3,0
+9,Pierce Up,5,-,-,0
+9,Pierce Up,3,-,-,3
+9,Pellet Up,3,Sheathing,5,0
+9,Pellet Up,3,Dead Eye,2,0
+9,Heavy Up,4,Potential,2,0
+9,Heavy Up,4,Dreadking X,1,1
+9,Rapid Fire,3,-,-,1
+9,Rapid Fire,2,Defense,6,1
+9,Rapid Fire,1,Attack,10,0
+9,Dead Eye,4,Silverwind X,-2,2
+9,Dead Eye,2,Charmer,-1,2
+9,Loading,4,Dead Eye,2,0
+9,Ammo Saver,5,Prolong SP,4,0
+9,Ammo Saver,4,Chance,2,0
+9,Ammo Saver,3,Prolong SP,-1,2
+9,Tenderizer,4,Crit Draw,1,0
+9,Chain Crit,4,Hero Shield,-1,2
+9,Chain Crit,3,-,-,1
+9,Chain Crit,1,KO,6,1
+9,Chain Crit,1,Charmer,7,1
+9,Crit Status,4,-,-,2
+9,Crit Status,3,-,-,3
+9,Crit Status,2,Critical Up,-1,3
+9,Crit Element,4,Guts,-1,1
+9,Fast Charge,6,-,-,0
+9,Fast Charge,4,-,-,1
+9,Stamina,5,Reload Spd,2,0
+9,Stamina,5,KO,2,0
+9,Stamina,5,Crisis,2,0
+9,Stamina,3,-,-,2
+9,Stamina,2,Thunder Atk,4,1
+9,Constitution,6,Evasion,1,0
+9,Constitution,4,Protection,6,0
+9,Constitution,3,Dreadking X,1,1
+9,Stam Recov,6,Guts,1,0
+9,Stam Recov,4,Endurance,2,0
+9,Evade Dist,6,Thunder Atk,-5,0
+9,Evade Dist,4,Fencing,3,1
+9,Evade Dist,4,-,-,1
+9,Evade Dist,4,-,-,1
+9,Evade Dist,3,Chain Crit,2,0
+9,Bubble,3,Water Atk,1,1
+9,Bubble,2,Hearing,-3,2
+9,Guard,6,Dreadking X,-2,2
+9,Guard,4,Mounting,2,2
+9,Guard,4,Vault,1,2
+9,Guard Up,6,-,-,1
+9,Guard Up,4,Ice Atk,4,0
+9,Guard Up,3,-,-,3
+9,Guard Up,3,-,-,2
+9,KO,10,-,-,1
+9,Stam Drain,9,Redhelm X,-2,1
+9,Stam Drain,8,-,-,1
+9,Stam Drain,5,-,-,3
+9,Destroyer,3,Bomb Boost,5,0
+9,Destroyer,3,-,-,3
+9,Gloves Off,6,-,-,1
+9,Gloves Off,5,-,-,1
+9,Spirit,1,Evade Dist,2,1
+9,Unscathed,3,Distance Runner,1,0
+9,Unscathed,3,Charmer,-7,1
+9,Unscathed,2,Crisis,3,1
+9,Unscathed,1,Silverwind X,3,0
+9,Chance,4,-,-,1
+9,Potential,6,-,-,1
+9,Potential,2,Furor,1,2
+9,Furor,6,Boltreaver X,-2,0
+9,Furor,2,-,-,3
+9,Crisis,5,Hearing,-1,2
+9,Crisis,3,Endurance,3,1
+9,Guts,5,Sharpener,2,0
+9,Guts,3,-,-,3
+9,Guts,3,-,-,1
+9,Guts,2,Dreadking X,2,1
+9,Vault,6,Blight Res,1,0
+9,Vault,5,-,-,2
+9,Vault,5,-,-,2
+9,Vault,5,-,-,1
+9,Vault,4,-,-,1
+9,Insight,4,-,-,0
+9,Endurance,6,Guts,-1,2
+9,Endurance,4,-,-,2
+9,Protection,4,Fire Atk,3,0
+9,Protection,4,-,-,3
+9,Protection,3,Fast Charge,4,0
+9,Hero Shield,3,Ammo Saver,-4,1
+9,Hero Shield,1,Loading,1,2
+9,Hero Shield,1,Bloodbath X,2,1
+9,Rec Level,3,-,-,3
+9,Eating,5,Gloves Off,1,1
+9,Eating,3,Water Atk,1,2
+9,Eating,2,Crystalbeard X,2,0
+9,Light Eater,3,Potential,1,1
+9,Charmer,7,-,-,0
+9,Charmer,7,-,-,0
+9,Charmer,6,Nightcloak X,-2,0
+9,Charmer,5,Destroyer,-3,1
+9,Charmer,5,-,-,2
+8,Hearing,5,Water Atk,1,0
+8,Sharpness,3,-,-,1
+8,Crit Draw,3,-,-,0
+8,Sheathe Sharpen,5,-,-,1
+8,Recoil,4,-,-,0
+8,Recoil,2,-,-,1
+8,Heavy Up,2,-,-,1
+8,Heavy Up,2,-,-,1
+8,Ammo Saver,4,-,-,1
+8,Ammo Saver,4,-,-,1
+8,Ammo Saver,4,-,-,1
+8,Tenderizer,2,Fire Atk,3,1
+8,Chain Crit,1,-,-,2
+8,Fast Charge,2,Bomb Boost,-4,1
+8,Distance Runner,4,Hero Shield,-1,0
+8,Evasion,3,Deadeye X,-3,1
+8,Evasion,2,-,-,2
+8,Guard,3,-,-,1
+8,Unscathed,2,-,-,1
+8,Unscathed,1,Mounting,-6,1
+8,Crisis,3,-,-,1
+8,Charmer,4,-,-,1
+7,Hearing,5,Boltreaver,3,0
+7,Hearing,3,Mounting,4,3
+7,Wind Res,3,Ice Atk,13,0
+7,Blight Res,4,Dragon Atk,13,0
+7,Thunder Atk,6,Punish Draw,-3,3
+7,Status,6,Expert,3,2
+7,Status,6,Dreadking,3,0
+7,Status,4,Spirit,2,3
+7,Status,2,Thunder Res,8,3
+7,Sharpness,1,Recoil,3,2
+7,Sharpness,1,Vault,5,2
+7,Blunt,5,Wind Res,2,0
+7,Sheathing,6,Eating,2,0
+7,Sheathing,4,Stun,8,2
+7,Sheathe Sharpen,2,Deadeye,3,0
+7,Reload Spd,6,Light Eater,-1,3
+7,Recoil,5,Grinder,-3,2
+7,Normal Up,2,Ammo Saver,5,3
+7,Normal Up,2,Bomb Boost,6,3
+7,Pierce Up,3,Capturer,2,3
+7,Heavy Up,5,Rustrazor,3,0
+7,Heavy Up,4,Thunderlord,3,0
+7,Dead Eye,2,Ammo Saver,5,0
+7,Tenderizer,5,Health,12,0
+7,Tenderizer,4,Crit Draw,3,1
+7,Tenderizer,4,Thunderlord,2,1
+7,Crit Status,5,Fire Res,-3,2
+7,Crit Status,5,Dragon Res,4,0
+7,Crit Status,5,-,-,2
+7,Fast Charge,5,Loading,1,3
+7,Fast Charge,2,Hellblade,3,2
+7,Stamina,5,-,-,2
+7,Constitution,6,Thunder Atk,-10,3
+7,Constitution,6,Unscathed,1,0
+7,Constitution,4,Soulseer,1,3
+7,Stam Recov,5,Punish Draw,7,0
+7,Stam Recov,2,Expert,6,2
+7,Evasion,5,Water Atk,4,2
+7,Evasion,2,Artillery,10,0
+7,Evade Dist,5,Water Res,13,2
+7,Evade Dist,5,Sheathing,2,0
+7,Evade Dist,1,Dead Eye,5,3
+7,Guard,6,Sharpener,7,0
+7,Guard,5,Thunder Res,3,3
+7,Guard,5,Critical Up,3,0
+7,Guard Up,5,Fire Res,12,0
+7,Stam Drain,5,Handicraft,3,0
+7,Destroyer,5,-,-,3
+7,Gloves Off,6,Expert,1,3
+7,Crisis,5,Dreadqueen,3,0
+7,Crisis,4,Hellblade,3,0
+7,Crisis,3,Crystalbeard,3,1
+7,Crisis,1,Silverwind,2,3
+7,Team Player,4,Hunger,10,0
+7,Team Leader,6,Stam Recov,4,0
+7,Vault,5,Thunder Res,5,2
+7,Vault,4,Ice Atk,7,0
+7,Vault,4,Sheathing,4,0
+7,Endurance,4,-,-,3
+7,Rec Level,6,Stonefist,3,1
+7,Rec Level,3,Bubble,3,0
+7,Rec Level,2,Thunder Res,5,3
+7,Eating,5,Ice Atk,9,0
+7,Light Eater,5,Thunderlord,-1,3
+7,Light Eater,5,-,-,2
+7,Light Eater,3,Bloodbath,1,2
+7,Light Eater,1,Psychic,11,1
+7,Carnivore,4,Reload Spd,2,0
+7,Carnivore,3,Bomb Boost,7,0
+7,Charmer,7,-,-,3
+6,Hearing,4,Soulseer,-2,1
+6,Hearing,4,-,-,1
+6,Hearing,2,Hero Shield,2,0
+6,Coldblooded,5,Expert,-5,1
+6,Coldblooded,4,-,-,0
+6,Hotblooded,1,Rec Level,2,2
+6,Frenzy Res,4,Defense,1,0
+6,Frenzy Res,4,-,-,0
+6,Frenzy Res,3,Nightcloak,2,0
+6,Frenzy Res,3,-,-,2
+6,Frenzy Res,2,-,-,3
+6,Thunder Atk,6,-,-,1
+6,Thunder Atk,3,Sharpener,5,0
+6,Ice Atk,6,-,-,1
+6,Ice Atk,4,Ice Res,9,0
+6,Ice Atk,4,-,-,3
+6,Ice Atk,1,Fast Charge,3,0
+6,Dragon Atk,4,Fire Res,6,0
+6,Elemental,4,Defense,-10,0
+6,Elemental,4,-,-,1
+6,Status,4,Sheathe Sharpen,1,0
+6,Sharpness,2,Chain Crit,2,0
+6,Fencing,4,Endurance,2,0
+6,Fencing,2,-,-,2
+6,Sheathing,1,Health,10,1
+6,Sheathe Sharpen,1,KO,2,2
+6,Reload Spd,5,-,-,0
+6,Reload Spd,5,-,-,0
+6,Reload Spd,3,Punish Draw,5,0
+6,Recoil,2,-,-,2
+6,Normal Up,4,-,-,0
+6,Pierce Up,1,Reload Spd,4,0
+6,Pellet Up,1,Normal Up,2,1
+6,Pellet Up,1,Potential,1,3
+6,Heavy Up,5,Health,1,0
+6,Heavy Up,4,Nightcloak,1,0
+6,Heavy Up,2,-,-,2
+6,Heavy Up,1,Status,4,0
+6,Dead Eye,3,-,-,1
+6,Dead Eye,3,-,-,0
+6,Ammo Saver,4,-,-,0
+6,Ammo Saver,3,Tenderizer,2,0
+6,Tenderizer,5,Gloves Off,-3,1
+6,Tenderizer,5,Vault,-2,0
+6,Tenderizer,3,-,-,1
+6,Tenderizer,2,Fire Atk,8,0
+6,Tenderizer,1,Grimclaw,2,0
+6,Crit Status,4,-,-,2
+6,Crit Status,2,-,-,3
+6,Crit Status,1,Capturer,-1,3
+6,Crit Element,3,-,-,3
+6,Fast Charge,4,Water Atk,1,0
+6,Fast Charge,3,-,-,2
+6,Fast Charge,2,Gloves Off,1,2
+6,Stamina,5,Carnivore,1,0
+6,Stamina,4,Ice Atk,3,0
+6,Stamina,4,Guard Up,1,0
+6,Stamina,4,Chance,-3,1
+6,Stamina,3,Crystalbeard,-2,3
+6,Stamina,2,Expert,7,0
+6,Stamina,2,Protection,6,1
+6,Stamina,1,Sharpness,2,2
+6,Stamina,1,Deadeye,-3,3
+6,Constitution,6,-,-,0
+6,Constitution,3,-,-,2
+6,Constitution,1,Ammo Saver,2,2
+6,Stam Recov,6,Vault,-2,1
+6,Stam Recov,5,Dragon Atk,4,0
+6,Evasion,5,-,-,1
+6,Evasion,5,-,-,0
+6,Evasion,4,Fire Atk,7,0
+6,Evasion,4,Hellblade,1,0
+6,Evasion,3,Ice Atk,9,0
+6,Evasion,3,Bloodbath,1,1
+6,Evasion,1,Sheathe Sharpen,3,0
+6,Evade Dist,5,-,-,2
+6,Evade Dist,5,-,-,1
+6,Evade Dist,3,Charmer,1,3
+6,Evade Dist,3,-,-,2
+6,Evade Dist,2,Redhelm,1,2
+6,Evade Dist,1,Maestro,10,0
+6,Guard,6,-,-,0
+6,Guard,4,-,-,1
+6,Guard,3,Spirit,2,0
+6,Guard,1,Evasion,2,2
+6,Guard Up,6,-,-,0
+6,Guard Up,5,-,-,1
+6,Guard Up,5,-,-,0
+6,Guard Up,3,Handicraft,-2,3
+6,Guard Up,3,-,-,2
+6,Guard Up,1,Attack,9,0
+6,Guard Up,1,Light Eater,5,0
+6,KO,6,-,-,0
+6,KO,4,-,-,2
+6,KO,2,Light Eater,3,1
+6,KO,1,Rapid Fire,2,0
+6,KO,1,Hellblade,2,2
+6,Stam Drain,6,-,-,0
+6,Stam Drain,5,-,-,2
+6,Stam Drain,3,Psychic,7,1
+6,Stam Drain,3,Drilltusk,1,1
+6,Stam Drain,3,-,-,3
+6,Stam Drain,3,-,-,3
+6,Destroyer,5,Ammo Saver,-1,1
+6,Destroyer,5,-,-,1
+6,Destroyer,3,-,-,3
+6,Destroyer,2,Blight Res,1,2
+6,Destroyer,2,Charmer,4,1
+6,Potential,6,Reload Spd,-1,1
+6,Potential,6,-,-,0
+6,Potential,5,-,-,2
+6,Potential,4,Distance Runner,3,0
+6,Potential,3,Blight Res,1,0
+6,Furor,3,Carnivore,-2,3
+6,Furor,3,-,-,1
+6,Furor,2,Evade Dist,3,0
+6,Furor,2,KO,-1,3
+6,Furor,1,Fire Res,12,0
+6,Crisis,3,Critical Up,1,1
+6,Crisis,2,-,-,3
+6,Crisis,2,-,-,2
+6,Team Player,6,-,-,2
+6,Team Leader,5,Hearing,-3,2
+6,Vault,1,Bloodbath,2,0
+6,Endurance,1,Drilltusk,2,0
+6,Carnivore,5,-,-,0
+4,Sleep,1,Clust S,10,0
+4,Stun,8,Ice Res,10,0
+4,Bind Res,6,Perception,3,0
+4,Thunder Res,6,Combo Rate,8,0
+4,Ice Res,4,Pellet S,10,0
+4,Thunder Atk,7,Speed Setup,10,0
+4,Ice Atk,6,Poison C,9,0
+4,Blunt,2,Precision,10,0
+4,Sheathing,2,Para C,10,0
+4,Precision,2,Heat Res,10,0
+4,Precision,1,Tremor Res,5,2
+4,Normal S,6,-,-,1
+4,Normal S,1,Close Range C,10,2
+4,Pierce S,9,-,-,2
+4,Pierce S,4,Poison,6,0
+4,Crag S,10,Haphazard,2,0
+4,Exhaust C,10,-,-,0
+4,Exhaust C,7,Sleep,7,0
+4,Blast C,9,Anti Theft,5,0
+4,Ammo Saver,1,Clust S,10,0
+4,Maestro,5,Power C,10,0
+4,Bomb Boost,1,Whim,13,0
+4,Survivor,4,-,-,1
+4,Furor,2,Lasting Power,7,1
+4,Crisis,3,Ranger,9,0
+4,Team Player,5,Haphazard,6,0
+4,Team Player,1,Elem C,12,2
+4,Vault,3,Sleep C,8,0
+4,Prolong SP,2,Power C,9,2
+4,Transporter,8,Crit Element,-5,0
+4,Botany,8,Mounting,5,0
+4,Honey,8,Whim,-9,0
+3,Paralysis,1,-,-,1
+2,Cold Res,10,-,-,0
+2,Gathering,10,-,-,0
