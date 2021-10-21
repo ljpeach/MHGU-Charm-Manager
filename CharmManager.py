@@ -521,7 +521,7 @@ class CharmManager:
         i=len(self.charmList)-1
         while place >=0 and i >= 0 and self.charmList[i].rarity<8:
             if not self.inBest(self.charmList[i]) and not self.hasMaxedPoints(self.charmList[i]):
-                toRemove[place] = self.charmList.pop(i)
+                toRemove[place] = self.charmList.pop(i),(i//9+1)
                 place-=1
             i-=1
         return toRemove
@@ -554,11 +554,23 @@ class CharmManager:
         This function prints all charms stored by the CharmManager object.
         Marks charms that are either the best charm owned for the given skill, or has the maximum available points for either skill, by using an "*".
         '''
-        for i in self.charmList:
-            if self.hasMaxedPoints(i) or self.inBest(i):
-                print("* "+str(i))
+        for i in range(len(self.charmList)):
+            if i%9==0:
+                print("Page "+str((i//9)+1)+":")
+            if self.hasMaxedPoints(self.charmList[i]) or self.inBest(self.charmList[i]):
+                print("* " + str(self.charmList[i]))
             else:
-                print("  "+str(i))
+                print("  " + str(self.charmList[i]))
+
+    def displayPage(self, page):
+        page-=1
+        i=page*9
+        while i<len(self.charmList) and i//9<page+1:
+            if self.hasMaxedPoints(self.charmList[i]) or self.inBest(self.charmList[i]):
+                print("* " + str(self.charmList[i]))
+            else:
+                print("  " + str(self.charmList[i]))
+            i+=1
 
     def displaySkill(self, skill):
         '''
@@ -604,7 +616,18 @@ class CharmManager:
 if __name__ == "__main__":
     charmSession = CharmManager()
     print("Welcome to Liam's MHGU Charm Manager!")
-    mainMenu = "Enter the number cooresponding to your choice.\n 1: Display All Charms\n 2: Display Charms w/ a Certain Skill\n 3: Display All Best Charms\n 4: Display Best Charm for a Certain Skill\n 5: Add a New Charm\n 6: Recycle 3 Spares for melding\n 7: Trash a charm\n 8: Secret Dangerous Options\n 9: Quit\n"
+    mainMenu = ("Enter the number cooresponding to your choice.\n"
+                "1: Display All Charms\n"
+                "2: Display Charms w/ a Certain Skill\n"
+                "3: Display a Page \n"
+                "4: Display All Best Charms\n"
+                "5: Display Best Charm for a Certain Skill\n"
+                "6: Add a New Charm\n"
+                "7: Move through each page and add new charms\n"
+                "8: Recycle 3 Spares for melding\n"
+                "9: Trash a charm\n"
+                "10: Secret Dangerous Options\n"
+                "11: Quit\n")
     while True:
         try:
             selection = input(mainMenu)
@@ -614,11 +637,14 @@ if __name__ == "__main__":
                 skill = input("Select which skill?\n")
                 charmSession.displaySkill(skill)
             elif selection == "3":
-                charmSession.displayBest()
+                page = input("View Which Page?\n")
+                charmSession.displayPage(int(page))
             elif selection == "4":
+                charmSession.displayBest()
+            elif selection == "5":
                 skill = input("Select which skill?\n")
                 charmSession.displayBestSkill(skill)
-            elif selection == "5":
+            elif selection == "6":
                 newCharm = input("Enter your new charm. Format: rarity,skill 1,skill1 points,skill2,skill2 points,slots\n")
                 #Convert string into usable parameters for charm
                 newCharm = newCharm.split(",")
@@ -627,12 +653,39 @@ if __name__ == "__main__":
                 if newCharm[5] == "-":
                     newCharm[5] = 0
                 charmSession.addCharm(Charm(int(newCharm[0]), newCharm[1], int(newCharm[2]), newCharm[3], int(newCharm[4]), int(newCharm[5])))
-            elif selection == "6":
+                charmSession.writeOut()
+            elif selection == "7":
+                page = input("Start at what page?\n")
+                page = int(page)
+                while page-1<=len(charmSession.charmList)//9:
+                    print("Page "+str(page)+":")
+                    charmSession.displayPage(int(page))
+                    pageInsertionSelection = input("1: Add charms (enter 2 when ready to move on)\n2: Next page\n3: Previous Page\n4: Exit\n")
+                    if pageInsertionSelection == "1":
+                        newCharm = input("Enter your new charm. Format: rarity,skill 1,skill1 points,skill2,skill2 points,slots\n")
+                        #Convert string into usable parameters for charm
+                        if newCharm=="2":
+                            pass
+                        newCharm = newCharm.split(",")
+                        if newCharm[4] == "-":
+                            newCharm[4] = 0
+                        if newCharm[5] == "-":
+                            newCharm[5] = 0
+                        charmSession.addCharm(Charm(int(newCharm[0]), newCharm[1], int(newCharm[2]), newCharm[3], int(newCharm[4]), int(newCharm[5])))
+                        charmSession.writeOut()
+                    elif pageInsertionSelection== "2":
+                        page+=1
+                    elif pageInsertionSelection == "3":
+                        page-=1
+                    elif pageInsertionSelection == "4":
+                        break
+            elif selection == "8":
                 doomedCharms = charmSession.recycle3()
                 print("Recycle the following charms:")
                 for i in doomedCharms:
-                    print(i)
-            elif selection == "7":
+                    print("Page " + str(i[1])+ " " + str(i[0]))
+                charmSession.writeOut()
+            elif selection == "9":
                 deadCharm = input("Enter the charm you wish to remove. Format: rarity,skill 1,skill1 points,skill2,skill2 points,slots\n")
                 #Convert string into usable parameters for charm
                 deadCharm = deadCharm.split(",")
@@ -641,7 +694,8 @@ if __name__ == "__main__":
                 if deadCharm[5] == "-":
                     deadCharm[5] = 0
                 charmSession.removeCharm(Charm(int(deadCharm[0]), deadCharm[1], int(deadCharm[2]), deadCharm[3], int(deadCharm[4]), int(deadCharm[5])))
-            elif selection =="8":
+                charmSession.writeOut()
+            elif selection =="10":
                 secretOptions = "Enter the number cooresponding to your choice.\n 1: Clear All Charms\n 2: Load Backup File\n 3: Save to Backup\n 4: Return to Main Menu\n"
                 secretSelection = input(secretOptions)
                 if secretSelection == "1":
@@ -672,11 +726,11 @@ if __name__ == "__main__":
                 else:
                     print(secretSelection)
                     raise Error
-            elif selection == "9":
+            elif selection == "11":
                 break
             else:
                 raise Error
         except:
-            print("You made an error in your input. Please try again.")
+            print("You made an error in your input. Please try again.",Error)
     charmSession.writeOut()
     print("Come again!")
