@@ -1,5 +1,192 @@
 #Liam Peachey
-#ljpeach18-CharmManager.py
+#CharmManager.py
+'''
+skillDict : dict
+    A dictionary containing all skills that charms can contribute to.
+    Format for skillDict elements:
+        "skill name" :
+        (
+            [Order in skill list. Not sorted alphabetically, so this is needed.],
+            ([points from one slot], [points from two slots], [points from three slots]),
+            ([max skill1 points], [max skill2 points], [points needed for highest tier of activation])
+        )
+'''
+skillDict = {
+        "Poison" : (1, (1,3,4), (5,7,10)),
+        "Paralysis" : (2, (1,3,4), (5,7,10)),
+        "Sleep" : (3, (1,3,4), (5,7,10)),
+        "Stun" : (4, (2,4,6), (8,13,15)),
+        "Hearing" : (5, (1,2,4), (7,5,15)),
+        "Wind Res" : (6, (1,3,4), (10,7,15)),
+        "Tremor Res" : (7, (2,4,6), (7,8,10)),
+        "Bind Res" : (8, (2,4,6), (7,8,10)),
+        "Heat Res" : (9, (2,4,6), (10,10,10)),
+        "Cold Res" : (10, (2,4,6), (10,10,10)),
+        "Coldblooded" : (11, (1,2,4), (7,0,10)),
+        "Hotblooded" : (12, (1,2,4), (7,0,10)),
+        "Anti Theft" : (13, (2,4,6), (10,10,10)),
+        "Def Lock" : (14, (2,4,6), (7,8,10)),
+        "Frenzy Res" : (15, (1,2,5), (7,5,10)),
+        "Biology" : (16, (2,4,6), (10,5,15)),
+        "Bleeding" : (17, (2,4,6), (5,10,10)),
+        "Attack" : (18, (1,3,5), (4,10,20)),
+        "Defense" : (19, (1,3,4), (4,13,20)),
+        "Health" : (20, (2,4,6), (8,13,15)),
+        "Fire Res" : (21, (2,4,6), (6,13,15)),
+        "Water Res" : (22, (2,4,6), (6,13,15)),
+        "Thunder Res" : (23, (2,4,6), (6,13,15)),
+        "Ice Res" : (24, (2,4,6), (6,13,15)),
+        "Dragon Res" : (25, (2,4,6), (6,13,15)),
+        "Blight Res" : (26, (1,2,4), (7,7,10)),
+        "Fire Atk" : (27, (1,3,4), (7,13,15)),
+        "Water Atk" : (28, (1,3,4), (7,13,15)),
+        "Thunder Atk" : (29, (1,3,4), (7,13,15)),
+        "Ice Atk" : (30, (1,3,4), (7,13,15)),
+        "Dragon Atk" : (31, (1,3,4), (7,13,15)),
+        "Elemental" : (32, (1,2,4), (7,0,10)),
+        "Status" : (33, (1,3,4), (7,7,15)),
+        "Sharpener" : (34, (2,4,6), (4,10,10)),
+        "Handicraft" : (35, (1,2,4), (0,5,15)),
+        "Sharpness" : (36, (1,2,4), (7,7,10)),
+        "Fencing" : (37, (1,2,4), (7,7,10)),
+        "Grinder" : (38, (1,2,4), (5,5,10)),
+        "Blunt" : (39, (1,3,4), (6,0,10)),
+        "Crit Draw" : (40, (1,3,4), (5,5,10)),
+        "Punish Draw" : (41, (1,2,4), (5,8,10)),
+        "Sheathing" : (42, (1,3,4), (10,7,10)),
+        "Sheathe Sharpen" : (43, (2,4,6), (10,3,10)),
+        "Bladescale" : (44, (1,2,4), (0,3,10)),
+        "Reload Spd" : (45, (1,3,4), (7,7,20)),
+        "Recoil" : (46, (1,2,4), (6,7,20)),
+        "Precision" : (47, (2,4,6), (6,10,15)),
+        "Normal Up" : (48, (1,2,4), (6,5,10)),
+        "Pierce Up" : (49, (1,2,4), (6,5,10)),
+        "Pellet Up" : (50, (1,2,4), (6,5,10)),
+        "Heavy Up" : (51, (1,2,4), (6,5,10)),
+        "Normal S" : (52, (1,3,4), (6,8,10)),
+        "Pierce S" : (53, (2,4,6), (10,10,15)),
+        "Pellet S" : (54, (2,4,6), (10,10,15)),
+        "Crag S" : (55, (2,4,6), (10,10,15)),
+        "Clust S" : (56, (1,2,4), (10,10,15)),
+        "Poison C" : (57, (2,4,6), (8,10,10)),
+        "Para C" : (58, (1,3,4), (8,10,10)),
+        "Sleep C" : (59, (2,4,6), (8,10,10)),
+        "Power C" : (60, (1,3,4), (8,12,15)),
+        "Elem C" : (61, (1,3,4), (8,12,15)),
+        "Close Range C" : (62, (2,4,6), (8,10,10)),
+        "Exhaust C" : (63, (2,4,6), (10,10,10)),
+        "Blast C" : (64, (2,4,6), (10,10,10)),
+        "Rapid Fire" : (65, (1,2,4), (5,5,10)),
+        "Dead Eye" : (66, (1,3,4), (5,5,10)),
+        "Loading" : (67, (1,2,4), (5,5,10)),
+        "Haphazard" : (68, (2,4,6), (5,10,10)),
+        "Ammo Saver" : (69, (1,3,4), (7,7,10)),
+        "Expert" : (70, (1,3,5), (4,10,20)),
+        "Tenderizer" : (71, (1,2,4), (6,5,10)),
+        "Chain Crit" : (72, (1,2,4), (5,3,10)),
+        "Crit Status" : (73, (1,3,4), (6,5,10)),
+        "Crit Element" : (74, (1,3,4), (6,5,10)),
+        "Critical Up" : (75, (1,2,4), (0,5,10)),
+        "Negative Crit" : (76, (1,2,4), (0,3,10)),
+        "Fast Charge" : (77, (1,2,4), (6,5,10)),
+        "Stamina" : (78, (1,2,4), (6,5,10)),
+        "Constitution" : (79, (1,3,4), (7,5,10)),
+        "Stam Recov" : (80, (1,3,4), (7,5,10)),
+        "Distance Runner" : (81, (1,3,4), (6,5,10)),
+        "Evasion" : (82, (1,3,4), (6,5,15)),
+        "Evade Dist" : (83, (1,2,4), (6,5,10)),
+        "Bubble" : (84, (1,2,4), (5,3,10)),
+        "Guard" : (85, (1,3,4), (7,5,15)),
+        "Guard Up" : (86, (1,3,4), (7,5,10)),
+        "KO" : (87, (1,3,4), (10,10,10)),
+        "Stam Drain" : (88, (1,3,4), (10,10,10)),
+        "Maestro" : (89, (2,4,6), (6,10,10)),
+        "Artillery" : (90, (2,4,6), (6,10,15)),
+        "Destroyer" : (91, (1,2,4), (6,5,10)),
+        "Bomb Boost" : (92, (2,4,6), (6,10,10)),
+        "Gloves Off" : (93, (1,3,4), (6,5,15)),
+        "Spirit" : (94, (1,3,4), (5,3,15)),
+        "Unscathed" : (95, (1,3,4), (5,3,10)),
+        "Chance" : (96, (1,2,4), (5,3,10)),
+        "Dragon Spirit" : (97, (1,2,4), (0,3,10)),
+        "Potential" : (98, (1,3,4), (6,5,15)),
+        "Survivor" : (99, (1,3,4), (5,5,10)),
+        "Furor" : (100, (1,3,4), (6,5,10)),
+        "Crisis" : (101, (1,3,4), (6,5,10)),
+        "Guts" : (102, (1,3,4), (5,3,10)),
+        "Sense" : (103, (2,4,6), (8,10,10)),
+        "Team Player" : (104, (2,4,6), (7,10,10)),
+        "Team Leader" : (105, (1,3,4), (7,10,10)),
+        "Mounting" : (106, (2,4,6), (10,10,10)),
+        "Vault" : (107, (2,4,6), (6,5,10)),
+        "Insight" : (108, (1,2,4), (5,3,10)),
+        "Endurance" : (109, (2,4,6), (7,7,10)),
+        "Prolong SP" : (110, (1,3,4), (7,7,10)),
+        "Psychic" : (111, (2,4,6), (8,12,15)),
+        "Perception" : (112, (2,4,6), (8,10,10)),
+        "Ranger" : (113, (2,4,6), (8,10,10)),
+        "Transporter" : (114, (2,4,6), (8,10,10)),
+        "Protection" : (115, (2,4,6), (7,10,10)),
+        "Hero Shield" : (116, (1,2,4), (5,3,10)),
+        "Rec Level" : (117, (1,3,4), (7,5,10)),
+        "Rec Speed" : (118, (1,3,4), (7,12,15)),
+        "Lasting Power" : (119, (2,4,6), (8,10,10)),
+        "Wide Range" : (120, (1,3,4), (8,12,15)),
+        "Hunger" : (121, (2,4,6), (8,10,15)),
+        "Gluttony" : (122, (2,4,6), (10,13,15)),
+        "Eating" : (123, (1,2,4), (6,5,15)),
+        "Light Eater" : (124, (2,4,6), (7,7,10)),
+        "Carnivore" : (125, (2,4,6), (5,5,10)),
+        "Mycology" : (126, (2,4,6), (0,5,10)),
+        "Botany" : (127, (2,4,6), (8,10,15)),
+        "Combo Rate" : (128, (2,4,6), (10,13,15)),
+        "Combo Plus" : (129, (2,4,6), (8,10,10)),
+        "Speed Setup" : (130, (2,4,6), (8,10,10)),
+        "Gathering" : (131, (2,4,6), (10,13,15)),
+        "Honey" : (132, (2,4,6), (8,10,10)),
+        "Charmer" : (133, (1,2,4), (7,10,15)),
+        "Whim" : (134, (2,4,6), (10,13,15)),
+        "Fate" : (135, (1,2,4), (0,7,20)),
+        "Carving" : (136, (1,2,4), (0,5,15)),
+        "Capturer" : (137, (1,2,4), (0,7,15)),
+        "Redhelm" : (138, (0,0,0), (0,3,10)),
+        "Snowbaron" : (139, (0,0,0), (0,3,10)),
+        "Stonefist" : (140, (0,0,0), (0,3,10)),
+        "Drilltusk" : (141, (0,0,0), (0,3,10)),
+        "Dreadqueen" : (142, (0,0,0), (0,3,10)),
+        "Crystalbeard" : (143, (0,0,0), (0,3,10)),
+        "Silverwind" : (144, (0,0,0), (0,3,10)),
+        "Deadeye" : (145, (0,0,0), (0,3,10)),
+        "Dreadking" : (146, (0,0,0), (0,3,10)),
+        "Thunderlord" : (147, (0,0,0), (0,3,10)),
+        "Grimclaw" : (148, (0,0,0), (0,3,10)),
+        "Hellblade" : (149, (0,0,0), (0,3,10)),
+        "Nightcloak" : (150, (0,0,0), (0,3,10)),
+        "Rustrazor" : (151, (0,0,0), (0,3,10)),
+        "Soulseer" : (152, (0,0,0), (0,3,10)),
+        "Boltreaver" : (153, (0,0,0), (0,3,10)),
+        "Elderfrost" : (154, (0,0,0), (0,3,10)),
+        "Bloodbath" : (155, (0,0,0), (0,3,10)),
+        "Redhelm X" : (156, (0,0,0), (0,3,10)),
+        "Snowbaron X" : (157, (0,0,0), (0,3,10)),
+        "Stonefist X" : (158, (0,0,0), (0,3,10)),
+        "Drilltusk X" : (159, (0,0,0), (0,3,10)),
+        "Dreadqueen X" : (160, (0,0,0), (0,3,10)),
+        "Crystalbeard X" : (161, (0,0,0), (0,3,10)),
+        "Silverwind X" : (162, (0,0,0), (0,3,10)),
+        "Deadeye X" : (163, (0,0,0), (0,3,10)),
+        "Dreadking X" : (164, (0,0,0), (0,3,10)),
+        "Thunderlord X" : (165, (0,0,0), (0,3,10)),
+        "Grimclaw X" : (166, (0,0,0), (0,3,10)),
+        "Hellblade X" : (167, (0,0,0), (0,3,10)),
+        "Nightcloak X" : (168, (0,0,0), (0,3,10)),
+        "Rustrazor X" : (169, (0,0,0), (0,3,10)),
+        "Soulseer X" : (170, (0,0,0), (0,3,10)),
+        "Boltreaver X" : (171, (0,0,0), (0,3,10)),
+        "Elderfrost X" : (172, (0,0,0), (0,3,10)),
+        "Bloodbath X" : (173, (0,0,0), (0,3,10)),
+        "-" : (174, (0,0,0), (-1,-1,-1))
+    }
 class Charm:
     '''
     The Charm object represents a single charm.
@@ -43,6 +230,7 @@ class Charm:
         self.skill1 = skill1,s1Points
         self.skill2 = skill2,s2points
         self.slots = slots
+        global skillDict
 
     def csvReadyString(self):
         '''
@@ -66,11 +254,37 @@ class Charm:
         #formatted = skill1: skill1 points | skill2: skill2 points |
         formatted = self.skill1[0] + ": " + str(self.skill1[1]) + " | " + self.skill2[0] + ": " + skill2Points + " | "
         if self.slots == 0:
-            return formatted + "---"
-        return formatted + "O"*self.slots
+            return formatted + "---"#+" rarity: "+str(self.rarity)
+        return formatted + "O"*self.slots# + " rarity: "+str(self.rarity)
 
-    def __eq__(self,other):
+    def __eq__(self, other):
         return self.rarity == other.rarity and self.skill1 == other.skill1 and self.skill2 == other.skill2 and self.slots == other.slots
+
+    def __lt__(self, other):
+        if self == other:
+            return True
+        elif self.rarity!=other.rarity:
+            return self.rarity>other.rarity
+        elif skillDict[self.skill1[0]]!=skillDict[other.skill1[0]]:
+            return skillDict[self.skill1[0]]<skillDict[other.skill1[0]]
+        elif self.skill1[1]!=other.skill1[1]:
+            return self.skill1[1]>other.skill1[1]
+        elif skillDict[self.skill2[0]]!=skillDict[other.skill2[0]]:
+            return skillDict[self.skill2[0]]<skillDict[other.skill2[0]]
+        elif self.skill2[1]!=other.skill2[1]:
+            return self.skill2[1]>other.skill2[1]
+        else:
+            return self.slots>other.slots
+        # return (self.rarity!=other.rarity and self.rarity<other.rarity) or \
+        #     (skillDict[self.skill1[0]]!=skillDict[other.skill1[0]] and skillDict[self.skill1[0]]<other.skill1[0]) or\
+        #     (self.skill1[1]!=other.skill1[1] and self.skill1[1]<other.skill1[1]) or\
+        #     (skillDict[self.skill2[0]]!=skillDict[other.skill2[0]] and skillDict[self.skill2[0]]<other.skill2[0]) or\
+        #     (self.skill2[1]!=other.skill2[1] and self.skill2[1]<other.skill2[1]) or\
+        #     (self.slots<other.slots)
+
+    def __gt__(self, other):
+        return ((not self < other ) or self==other)
+
 
 class CharmManager:
     '''
@@ -83,197 +297,11 @@ class CharmManager:
 
     bestDict : dict
         A dictionary of best items. Keys are the skill names, items are the charms.
-
-    skillDict : dict
-        A dictionary containing all skills that charms can contribute to.
-        Format for skillDict elements:
-            "skill name" :
-            (
-                [Order in skill list. Not sorted alphabetically, so this is needed.],
-                ([points from one slot], [points from two slots], [points from three slots]),
-                ([max skill1 points], [max skill2 points], [points needed for highest tier of activation])
-            )
     '''
     def __init__(self):
         self.charmList = []
         self.bestDict = {}
         #Format for skillDict elements: "skill name" : (Order in skill list. Not sorted alphabetically, so this is needed., (points from one slot, points from two slots, points from three slots), (max skill1 points, max skill2 points, points needed for highest tier of activation))
-        self.skillDict={
-                "Poison" : (1, (1,3,4), (5,7,10)),
-                "Paralysis" : (2, (1,3,4), (5,7,10)),
-                "Sleep" : (3, (1,3,4), (5,7,10)),
-                "Stun" : (4, (2,4,6), (8,13,15)),
-                "Hearing" : (5, (1,2,4), (7,5,15)),
-                "Wind Res" : (6, (1,3,4), (10,7,15)),
-                "Tremor Res" : (7, (2,4,6), (7,8,10)),
-                "Bind Res" : (8, (2,4,6), (7,8,10)),
-                "Heat Res" : (9, (2,4,6), (10,10,10)),
-                "Cold Res" : (10, (2,4,6), (10,10,10)),
-                "Coldblooded" : (11, (1,2,4), (7,0,10)),
-                "Hotblooded" : (12, (1,2,4), (7,0,10)),
-                "Anti Theft" : (13, (2,4,6), (10,10,10)),
-                "Def Lock" : (14, (2,4,6), (7,8,10)),
-                "Frenzy Res" : (15, (1,2,5), (7,5,10)),
-                "Biology" : (16, (2,4,6), (10,5,15)),
-                "Bleeding" : (17, (2,4,6), (5,10,10)),
-                "Attack" : (18, (1,3,5), (4,10,20)),
-                "Defense" : (19, (1,3,4), (4,13,20)),
-                "Health" : (20, (2,4,6), (8,13,15)),
-                "Fire Res" : (21, (2,4,6), (6,13,15)),
-                "Water Res" : (22, (2,4,6), (6,13,15)),
-                "Thunder Res" : (23, (2,4,6), (6,13,15)),
-                "Ice Res" : (24, (2,4,6), (6,13,15)),
-                "Dragon Res" : (25, (2,4,6), (6,13,15)),
-                "Blight Res" : (26, (1,2,4), (7,7,10)),
-                "Fire Atk" : (27, (1,3,4), (7,13,15)),
-                "Water Atk" : (28, (1,3,4), (7,13,15)),
-                "Thunder Atk" : (29, (1,3,4), (7,13,15)),
-                "Ice Atk" : (30, (1,3,4), (7,13,15)),
-                "Dragon Atk" : (31, (1,3,4), (7,13,15)),
-                "Elemental" : (32, (1,2,4), (7,0,10)),
-                "Status" : (33, (1,3,4), (7,7,15)),
-                "Sharpener" : (34, (2,4,6), (4,10,10)),
-                "Handicraft" : (35, (1,2,4), (0,5,15)),
-                "Sharpness" : (36, (1,2,4), (7,7,10)),
-                "Fencing" : (37, (1,2,4), (7,7,10)),
-                "Grinder" : (38, (1,2,4), (5,5,10)),
-                "Blunt" : (39, (1,3,4), (6,0,10)),
-                "Crit Draw" : (40, (1,3,4), (5,5,10)),
-                "Punish Draw" : (41, (1,2,4), (5,8,10)),
-                "Sheathing" : (42, (1,3,4), (10,7,10)),
-                "Sheathe Sharpen" : (43, (2,4,6), (10,3,10)),
-                "Bladescale" : (44, (1,2,4), (0,3,10)),
-                "Reload Spd" : (45, (1,3,4), (7,7,20)),
-                "Recoil" : (46, (1,2,4), (6,7,20)),
-                "Precision" : (47, (2,4,6), (6,10,15)),
-                "Normal Up" : (48, (1,2,4), (6,5,10)),
-                "Pierce Up" : (49, (1,2,4), (6,5,10)),
-                "Pellet Up" : (50, (1,2,4), (6,5,10)),
-                "Heavy Up" : (51, (1,2,4), (6,5,10)),
-                "Normal S" : (52, (1,3,4), (6,8,10)),
-                "Pierce S" : (53, (2,4,6), (10,10,15)),
-                "Pellet S" : (54, (2,4,6), (10,10,15)),
-                "Crag S" : (55, (2,4,6), (10,10,15)),
-                "Clust S" : (56, (1,2,4), (10,10,15)),
-                "Poison C" : (57, (2,4,6), (8,10,10)),
-                "Para C" : (58, (1,3,4), (8,10,10)),
-                "Sleep C" : (59, (2,4,6), (8,10,10)),
-                "Power C" : (60, (1,3,4), (8,12,15)),
-                "Elem C" : (61, (1,3,4), (8,12,15)),
-                "Close Range C" : (62, (2,4,6), (8,10,10)),
-                "Exhaust C" : (63, (2,4,6), (10,10,10)),
-                "Blast C" : (64, (2,4,6), (10,10,10)),
-                "Rapid Fire" : (65, (1,2,4), (5,5,10)),
-                "Dead Eye" : (66, (1,3,4), (5,5,10)),
-                "Loading" : (67, (1,2,4), (5,5,10)),
-                "Haphazard" : (68, (2,4,6), (5,10,10)),
-                "Ammo Saver" : (69, (1,3,4), (7,7,10)),
-                "Expert" : (70, (1,3,5), (4,10,20)),
-                "Tenderizer" : (71, (1,2,4), (6,5,10)),
-                "Chain Crit" : (72, (1,2,4), (5,3,10)),
-                "Crit Status" : (73, (1,3,4), (6,5,10)),
-                "Crit Element" : (74, (1,3,4), (6,5,10)),
-                "Critical Up" : (75, (1,2,4), (0,5,10)),
-                "Negative Crit" : (76, (1,2,4), (0,3,10)),
-                "Fast Charge" : (77, (1,2,4), (6,5,10)),
-                "Stamina" : (78, (1,2,4), (6,5,10)),
-                "Constitution" : (79, (1,3,4), (7,5,10)),
-                "Stam Recov" : (80, (1,3,4), (7,5,10)),
-                "Distance Runner" : (81, (1,3,4), (6,5,10)),
-                "Evasion" : (82, (1,3,4), (6,5,15)),
-                "Evade Dist" : (83, (1,2,4), (6,5,10)),
-                "Bubble" : (84, (1,2,4), (5,3,10)),
-                "Guard" : (85, (1,3,4), (7,5,15)),
-                "Guard Up" : (86, (1,3,4), (7,5,10)),
-                "KO" : (87, (1,3,4), (10,10,10)),
-                "Stam Drain" : (88, (1,3,4), (10,10,10)),
-                "Maestro" : (89, (2,4,6), (6,10,10)),
-                "Artillery" : (90, (2,4,6), (6,10,15)),
-                "Destroyer" : (91, (1,2,4), (6,5,10)),
-                "Bomb Boost" : (92, (2,4,6), (6,10,10)),
-                "Gloves Off" : (93, (1,3,4), (6,5,15)),
-                "Spirit" : (94, (1,3,4), (5,3,15)),
-                "Unscathed" : (95, (1,3,4), (5,3,10)),
-                "Chance" : (96, (1,2,4), (5,3,10)),
-                "Dragon Spirit" : (97, (1,2,4), (0,3,10)),
-                "Potential" : (98, (1,3,4), (6,5,15)),
-                "Survivor" : (99, (1,3,4), (5,5,10)),
-                "Furor" : (100, (1,3,4), (6,5,10)),
-                "Crisis" : (101, (1,3,4), (6,5,10)),
-                "Guts" : (102, (1,3,4), (5,3,10)),
-                "Sense" : (103, (2,4,6), (8,10,10)),
-                "Team Player" : (104, (2,4,6), (7,10,10)),
-                "Team Leader" : (105, (1,3,4), (7,10,10)),
-                "Mounting" : (106, (2,4,6), (10,10,10)),
-                "Vault" : (107, (2,4,6), (6,5,10)),
-                "Insight" : (108, (1,2,4), (5,3,10)),
-                "Endurance" : (109, (2,4,6), (7,7,10)),
-                "Prolong SP" : (110, (1,3,4), (7,7,10)),
-                "Psychic" : (111, (2,4,6), (8,12,15)),
-                "Perception" : (112, (2,4,6), (8,10,10)),
-                "Ranger" : (113, (2,4,6), (8,10,10)),
-                "Transporter" : (114, (2,4,6), (8,10,10)),
-                "Protection" : (115, (2,4,6), (7,10,10)),
-                "Hero Shield" : (116, (1,2,4), (5,3,10)),
-                "Rec Level" : (117, (1,3,4), (7,5,10)),
-                "Rec Speed" : (118, (1,3,4), (7,12,15)),
-                "Lasting Power" : (119, (2,4,6), (8,10,10)),
-                "Wide Range" : (120, (1,3,4), (8,12,15)),
-                "Hunger" : (121, (2,4,6), (8,10,15)),
-                "Gluttony" : (122, (2,4,6), (10,13,15)),
-                "Eating" : (123, (1,2,4), (6,5,15)),
-                "Light Eater" : (124, (2,4,6), (7,7,10)),
-                "Carnivore" : (125, (2,4,6), (5,5,10)),
-                "Mycology" : (126, (2,4,6), (0,5,10)),
-                "Botany" : (127, (2,4,6), (8,10,15)),
-                "Combo Rate" : (128, (2,4,6), (10,13,15)),
-                "Combo Plus" : (129, (2,4,6), (8,10,10)),
-                "Speed Setup" : (130, (2,4,6), (8,10,10)),
-                "Gathering" : (131, (2,4,6), (10,13,15)),
-                "Honey" : (132, (2,4,6), (8,10,10)),
-                "Charmer" : (133, (1,2,4), (7,10,15)),
-                "Whim" : (134, (2,4,6), (10,13,15)),
-                "Fate" : (135, (1,2,4), (0,7,20)),
-                "Carving" : (136, (1,2,4), (0,5,15)),
-                "Capturer" : (137, (1,2,4), (0,7,15)),
-                "Redhelm" : (138, (0,0,0), (0,3,10)),
-                "Snowbaron" : (139, (0,0,0), (0,3,10)),
-                "Stonefist" : (140, (0,0,0), (0,3,10)),
-                "Drilltusk" : (141, (0,0,0), (0,3,10)),
-                "Dreadqueen" : (142, (0,0,0), (0,3,10)),
-                "Crystalbeard" : (143, (0,0,0), (0,3,10)),
-                "Silverwind" : (144, (0,0,0), (0,3,10)),
-                "Deadeye" : (145, (0,0,0), (0,3,10)),
-                "Dreadking" : (146, (0,0,0), (0,3,10)),
-                "Thunderlord" : (147, (0,0,0), (0,3,10)),
-                "Grimclaw" : (148, (0,0,0), (0,3,10)),
-                "Hellblade" : (149, (0,0,0), (0,3,10)),
-                "Nightcloak" : (150, (0,0,0), (0,3,10)),
-                "Rustrazor" : (151, (0,0,0), (0,3,10)),
-                "Soulseer" : (152, (0,0,0), (0,3,10)),
-                "Boltreaver" : (153, (0,0,0), (0,3,10)),
-                "Elderfrost" : (154, (0,0,0), (0,3,10)),
-                "Bloodbath" : (155, (0,0,0), (0,3,10)),
-                "Redhelm X" : (156, (0,0,0), (0,3,10)),
-                "Snowbaron X" : (157, (0,0,0), (0,3,10)),
-                "Stonefist X" : (158, (0,0,0), (0,3,10)),
-                "Drilltusk X" : (159, (0,0,0), (0,3,10)),
-                "Dreadqueen X" : (160, (0,0,0), (0,3,10)),
-                "Crystalbeard X" : (161, (0,0,0), (0,3,10)),
-                "Silverwind X" : (162, (0,0,0), (0,3,10)),
-                "Deadeye X" : (163, (0,0,0), (0,3,10)),
-                "Dreadking X" : (164, (0,0,0), (0,3,10)),
-                "Thunderlord X" : (165, (0,0,0), (0,3,10)),
-                "Grimclaw X" : (166, (0,0,0), (0,3,10)),
-                "Hellblade X" : (167, (0,0,0), (0,3,10)),
-                "Nightcloak X" : (168, (0,0,0), (0,3,10)),
-                "Rustrazor X" : (169, (0,0,0), (0,3,10)),
-                "Soulseer X" : (170, (0,0,0), (0,3,10)),
-                "Boltreaver X" : (171, (0,0,0), (0,3,10)),
-                "Elderfrost X" : (172, (0,0,0), (0,3,10)),
-                "Bloodbath X" : (173, (0,0,0), (0,3,10)),
-                "-" : (174, (0,0,0), (-1,-1,-1))
-            }
         self.readIn()
 
     def readIn(self):
@@ -329,12 +357,12 @@ class CharmManager:
             self.charmList.insert(destIndex, charm)
             return
         #move to correct primary skill
-        while destIndex<len(self.charmList) and self.skillDict[self.charmList[destIndex].skill1[0]]<self.skillDict[charm.skill1[0]] and charm.rarity == self.charmList[destIndex].rarity:
+        while destIndex<len(self.charmList) and skillDict[self.charmList[destIndex].skill1[0]]<skillDict[charm.skill1[0]] and charm.rarity == self.charmList[destIndex].rarity:
             destIndex+=1
         if destIndex==len(self.charmList):
             self.charmList.append(charm)
             return
-        if self.skillDict[self.charmList[destIndex].skill1[0]] > self.skillDict[charm.skill1[0]] or self.charmList[destIndex].rarity<charm.rarity:
+        if skillDict[self.charmList[destIndex].skill1[0]] > skillDict[charm.skill1[0]] or self.charmList[destIndex].rarity<charm.rarity:
             self.charmList.insert(destIndex, charm)
             return
         #move to correct position within primary skill based on skill points
@@ -343,16 +371,16 @@ class CharmManager:
         if destIndex==len(self.charmList):
             self.charmList.append(charm)
             return
-        if self.charmList[destIndex].skill1[1]<charm.skill1[1] or self.skillDict[self.charmList[destIndex].skill1[0]] > self.skillDict[charm.skill1[0]]:
+        if self.charmList[destIndex].skill1[1]<charm.skill1[1] or skillDict[self.charmList[destIndex].skill1[0]] > skillDict[charm.skill1[0]]:
             self.charmList.insert(destIndex, charm)
             return
         #move to correct position within primary skill based on secondary skill
-        while destIndex<len(self.charmList) and self.skillDict[self.charmList[destIndex].skill2[0]]<self.skillDict[charm.skill2[0]] and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0] and self.charmList[destIndex].skill1[1] == charm.skill1[1]:
+        while destIndex<len(self.charmList) and skillDict[self.charmList[destIndex].skill2[0]]<skillDict[charm.skill2[0]] and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0] and self.charmList[destIndex].skill1[1] == charm.skill1[1]:
             destIndex+=1
         if destIndex==len(self.charmList):
             self.charmList.append(charm)
             return
-        if self.skillDict[self.charmList[destIndex].skill2[0]]>self.skillDict[charm.skill2[0]] or self.charmList[destIndex].skill1[1]<charm.skill1[1]:
+        if skillDict[self.charmList[destIndex].skill2[0]]>skillDict[charm.skill2[0]] or self.charmList[destIndex].skill1[1]<charm.skill1[1]:
             self.charmList.insert(destIndex, charm)
             return
         #move to correct position within primary skill based on skill points
@@ -361,7 +389,7 @@ class CharmManager:
         if destIndex==len(self.charmList):
             self.charmList.append(charm)
             return
-        if self.charmList[destIndex].skill2[1]<charm.skill2[1] or self.skillDict[self.charmList[destIndex].skill2[0]]>self.skillDict[charm.skill2[0]]:
+        if self.charmList[destIndex].skill2[1]<charm.skill2[1] or skillDict[self.charmList[destIndex].skill2[0]]>skillDict[charm.skill2[0]]:
             self.charmList.insert(destIndex, charm)
             return
         #Move to the final position based on decoration slots
@@ -435,9 +463,9 @@ class CharmManager:
             Whether or not the given charm has the max number of points for either skill
         '''
         #Are the points for skill 1 the same as the maximum number possible as recorded in the skill dictionary?
-        if charm.skill1[1] == self.skillDict[charm.skill1[0]][2][0]:
+        if charm.skill1[1] == skillDict[charm.skill1[0]][2][0]:
             return True
-        elif charm.skill2[1] == self.skillDict[charm.skill2[0]][2][1]:
+        elif charm.skill2[1] == skillDict[charm.skill2[0]][2][1]:
             return True
         return False
 
@@ -460,7 +488,7 @@ class CharmManager:
         '''
         skillTotal = skillTuple[1]
         if slots>0:
-            skillTotal+=self.skillDict[skillTuple[0]][1][slots-1]
+            skillTotal+=skillDict[skillTuple[0]][1][slots-1]
         return skillTotal
 
     def inBest(self, charm):
@@ -615,6 +643,11 @@ class CharmManager:
 
 if __name__ == "__main__":
     charmSession = CharmManager()
+    for i in range(len(charmSession.charmList)-1):
+        if not charmSession.charmList[i+1]>charmSession.charmList[i]:
+            print("gt not working on charms: "+str(charmSession.charmList[i])+", "+str(charmSession.charmList[i+1])+".")
+            exit()
+    print("gt successful")
     print("Welcome to Liam's MHGU Charm Manager!")
     mainMenu = ("Enter the number cooresponding to your choice.\n"
                 "1: Display All Charms\n"
@@ -731,6 +764,6 @@ if __name__ == "__main__":
             else:
                 raise Error
         except:
-            print("You made an error in your input. Please try again.",Error)
+            print("You made an error in your input. Please try again.", Error)
     charmSession.writeOut()
     print("Come again!")
