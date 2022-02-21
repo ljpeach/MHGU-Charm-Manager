@@ -321,6 +321,7 @@ class CharmManager:
                     params[5] = 0
                 self.addCharm(Charm(int(params[0]), params[1], int(params[2]), params[3], int(params[4]), int(params[5])))
         except:
+            print("here")
             dataFile = open("charmData.csv","w")
 
     def writeOut(self):
@@ -341,71 +342,23 @@ class CharmManager:
         charm : Charm
             This is the charm that will be inserted into the charm list.
         '''
-        destIndex = 0
         if len(self.charmList) == 0:
             self.charmList.append(charm)
             return
 
-        #The growing list of conditions in each while loop is to ensure that the charms don't move out of their previous bound.
-        #move to correct rarity
-        while destIndex<len(self.charmList) and self.charmList[destIndex].rarity>charm.rarity:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        if self.charmList[destIndex].rarity<charm.rarity:
-            self.charmList.insert(destIndex, charm)
-            return
-        #move to correct primary skill
-        while destIndex<len(self.charmList) and skillDict[self.charmList[destIndex].skill1[0]]<skillDict[charm.skill1[0]] and charm.rarity == self.charmList[destIndex].rarity:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        if skillDict[self.charmList[destIndex].skill1[0]] > skillDict[charm.skill1[0]] or self.charmList[destIndex].rarity<charm.rarity:
-            self.charmList.insert(destIndex, charm)
-            return
-        #move to correct position within primary skill based on skill points
-        while destIndex<len(self.charmList) and self.charmList[destIndex].skill1[1]>charm.skill1[1] and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0]:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        if self.charmList[destIndex].skill1[1]<charm.skill1[1] or skillDict[self.charmList[destIndex].skill1[0]] > skillDict[charm.skill1[0]]:
-            self.charmList.insert(destIndex, charm)
-            return
-        #move to correct position within primary skill based on secondary skill
-        while destIndex<len(self.charmList) and skillDict[self.charmList[destIndex].skill2[0]]<skillDict[charm.skill2[0]] and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0] and self.charmList[destIndex].skill1[1] == charm.skill1[1]:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        if skillDict[self.charmList[destIndex].skill2[0]]>skillDict[charm.skill2[0]] or self.charmList[destIndex].skill1[1]<charm.skill1[1]:
-            self.charmList.insert(destIndex, charm)
-            return
-        #move to correct position within primary skill based on skill points
-        while destIndex<len(self.charmList) and self.charmList[destIndex].skill2[1]>charm.skill2[1] and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0] and self.charmList[destIndex].skill1[1] == charm.skill1[1] and charm.skill2[0] == self.charmList[destIndex].skill2[0]:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        if self.charmList[destIndex].skill2[1]<charm.skill2[1] or skillDict[self.charmList[destIndex].skill2[0]]>skillDict[charm.skill2[0]]:
-            self.charmList.insert(destIndex, charm)
-            return
-        #Move to the final position based on decoration slots
-        while destIndex<len(self.charmList) and self.charmList[destIndex].slots>charm.slots and charm.rarity == self.charmList[destIndex].rarity and charm.skill1[0] == self.charmList[destIndex].skill1[0] and self.charmList[destIndex].skill1[1] == charm.skill1[1] and charm.skill2[0] == self.charmList[destIndex].skill2[0] and self.charmList[destIndex].skill2[1] == charm.skill2[1]:
-            destIndex+=1
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-            return
-        elif self.charmList[destIndex].slots < charm.slots or self.charmList[destIndex].skill2[1]<charm.skill2[1]:
-            self.charmList.insert(destIndex, charm)
-            return
-        if destIndex==len(self.charmList):
-            self.charmList.append(charm)
-        else:
-            self.charmList.insert(destIndex, charm)
-
+        low = 0
+        high = len(self.charmList)
+        while low<high:
+            mid = (low+high)//2
+            if self.charmList[mid]==charm:
+                self.charmList.insert(mid,charm)
+                break
+            elif charm>self.charmList[mid]:
+                low = mid+1
+            else:
+                high = mid-1
+        if low>=high:
+            self.charmList.insert(high, charm)
 
     def isBest(self, charm):
         '''
@@ -643,10 +596,11 @@ class CharmManager:
 
 if __name__ == "__main__":
     charmSession = CharmManager()
+    print(len(charmSession.charmList))
     for i in range(len(charmSession.charmList)-1):
         if not charmSession.charmList[i+1]>charmSession.charmList[i]:
             print("gt not working on charms: "+str(charmSession.charmList[i])+", "+str(charmSession.charmList[i+1])+".")
-            exit()
+            #exit()
     print("gt successful")
     print("Welcome to Liam's MHGU Charm Manager!")
     mainMenu = ("Enter the number cooresponding to your choice.\n"
